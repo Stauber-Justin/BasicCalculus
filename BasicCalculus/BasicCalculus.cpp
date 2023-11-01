@@ -1,20 +1,101 @@
 // BasicCalculus.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
-//
+// Simple Calculator : Create a basic calculator that can perform addition, subtraction, multiplication, and division operations.Use if - else statements to determine the operation based on user input.
+
+// printf("\033c"); Clears terminal; To-Do find out why;
 
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+void Addition() {
+	int numberOne;
+	int numberTwo;
+	int sum;
+
+	printf("\033c");
+
+	std::cout << "Hey! Welcome to the addition module, please insert two numbers to calculate the sum\n";
+	std::cin >> numberOne >> numberTwo;
+	
+	sum = numberOne + numberTwo;
+	std::cout << numberOne << " + " << numberTwo << " = " << sum << std::endl << std::endl;
 }
 
-// Programm ausführen: STRG+F5 oder Menüeintrag "Debuggen" > "Starten ohne Debuggen starten"
-// Programm debuggen: F5 oder "Debuggen" > Menü "Debuggen starten"
+void Subtraction() {
+	int numberOne;
+	int numberTwo;
+	int difference;
 
-// Tipps für den Einstieg: 
-//   1. Verwenden Sie das Projektmappen-Explorer-Fenster zum Hinzufügen/Verwalten von Dateien.
-//   2. Verwenden Sie das Team Explorer-Fenster zum Herstellen einer Verbindung mit der Quellcodeverwaltung.
-//   3. Verwenden Sie das Ausgabefenster, um die Buildausgabe und andere Nachrichten anzuzeigen.
-//   4. Verwenden Sie das Fenster "Fehlerliste", um Fehler anzuzeigen.
-//   5. Wechseln Sie zu "Projekt" > "Neues Element hinzufügen", um neue Codedateien zu erstellen, bzw. zu "Projekt" > "Vorhandenes Element hinzufügen", um dem Projekt vorhandene Codedateien hinzuzufügen.
-//   6. Um dieses Projekt später erneut zu öffnen, wechseln Sie zu "Datei" > "Öffnen" > "Projekt", und wählen Sie die SLN-Datei aus.
+	printf("\033c");
+
+	std::cout << "Hey! Welcome to the subtraction module, please insert two numbers to calculate the difference\n";
+	std::cin >> numberOne >> numberTwo;
+
+	difference = numberOne - numberTwo;
+	std::cout << numberOne << " - " << numberTwo << " = " << difference << std::endl << std::endl;
+}
+
+void Multiplication() {
+	int numberOne;
+	int numberTwo;
+	int product;
+
+	printf("\033c");
+
+	std::cout << "Hey! Welcome to the multiplication module, please insert two numbers to calculate the product\n";
+	std::cin >> numberOne >> numberTwo;
+	product = numberOne * numberTwo;
+	std::cout << numberOne << " * " << numberTwo << " = " << product << std::endl << std::endl;
+}
+
+void Division() {
+	int numberOne;
+	int numberTwo;
+	int quotient;
+
+	printf("\033c");
+
+	std::cout << "Hey! Welcome to the division module, please insert two numbers to calculate the quotient\n";
+	std::cin >> numberOne >> numberTwo;
+	quotient = numberOne / numberTwo;
+	std::cout << numberOne << " / " << numberTwo << " = " << quotient << std::endl << std::endl;
+}
+
+int main()
+{
+	short inputNumber;
+	bool exit = false;
+
+	while (exit != true)
+	{
+		std::cout << "Hey! Welcome to Basic Calculus, how can I help you?\n";
+		std::cout << "1 : Addition Module\n" << "2 : Subtraction Module\n" << "3 : Multiplication Module\n" << "4 : Division Module\n" << "9 : Exit\n"<<"Press a number to continue:\n";
+		std::cin >> inputNumber;
+
+		while (inputNumber <= 0) { //endless loop with non numerical input
+			std::cout << "Your input is invalid, please try again.\n";
+			std::cout << "Hey! Welcome to Basic Calculus, how can I help you?\n" << "Press a number to continue\n";
+			std::cin >> inputNumber;
+		}
+
+		switch (inputNumber) {
+		case 1:
+			Addition();
+			break;
+		case 2:
+			Subtraction();
+			break;
+		case 3:
+			Multiplication();
+			break;
+		case 4:
+			Division();
+			break;
+		case 9:
+			exit = true;
+			break;
+		default:
+			std::cout << "Seems like your input dosent have a linked module, please try again.\n";
+			break;
+		}
+	}
+	return 0;
+}
